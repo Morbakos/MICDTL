@@ -8,6 +8,6 @@ public class TestBanque
 		banque.ouvrirCompte("MaTiteNoble", "MonTitMilitaire");
 
 		Compte monCompte = banque.verifie("MaTiteNoble", "MonTitMilitaire");
-		System.out.println(banque.solde(monCompte));
+		System.out.println("Votre compte possède un solde de " + banque.solde(monCompte) + "€");
 	}
 }

@@ -7,7 +7,7 @@ public class Compte
 	public Compte (String nomProp, String pass, int soldeInitial)
 	{
 		this.nomProprietaire = nomProp;
-		this.password = password;
+		this.password = pass;
 		this.soldeCompte = soldeInitial;
 	}
 

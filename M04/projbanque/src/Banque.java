@@ -24,7 +24,6 @@ public class Banque
 	{
 		Compte compte = this.hashtable.get(nom);
 		if (compte != null) {
-			System.out.println("Compte trouvé");
 			if (compte.getPassword().equals(password)) {
 				return compte;
 			} else {
