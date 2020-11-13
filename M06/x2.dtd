@@ -1,0 +1,8 @@
+<!ELEMENT A ( B+,C) />
+<!ELEMENT B ( E+ ) />
+<!ELEMENT C ( F+ ) />
+<!ELEMENT E EMPTY />
+<!ATTLIST E 
+	nb CDATA #REQUIRED/>
+
+<!ELEMENT F (#CPDATA) />

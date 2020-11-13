@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<CV>
+	<entete>
+		<identite>
+			<nomPrenom>JACOB Alexis</nomPrenom>
+			<metier>Développeur Informatique</metier>
+		</identite>
+
+		<coordonnees>
+			<email>jacobalexis993@gmail.com</email>
+			<adresse>
+				<rue>27 rue Étienne Marcel</rue>
+				<codePostal>93500</codePostal>
+				<ville>Pantin</ville>
+			</adresse>
+			<age>21 ans</age>
+			<permis>Permis B</permis>
+			<numTel>06 28 78 80 24</numTel>
+		</coordonnees>
+	</entete>
+
+	<experiencePro>
+		<experience>
+			<titre>
+				<intitule>Stagiaire développeur</intitule>
+				<entreprise>VAS</entreprise>
+				<domaineEntreprise>Conseil en systèmes et logiciels informatiques</domaineEntreprise>
+				<lieuEntreprise>Cergy</lieuEntreprise>
+				<duree>De Avril 2020 à Juin 2020</duree>
+			</titre>
+
+			<description>
+				Développement d'une plateforme d'évaluation de compétences basée sur le framework Laravel
+				Correction de bugs
+				Développement de nouvelles fonctionnalités
+				Mise à jour des fonctionnalités existantes
+			</description>
+		</experience>
+
+		<experience>
+			<titre>
+				<intitule>Apprenti</intitule>
+				<entreprise>ITNI</entreprise>
+				<domaineEntreprise>Intégrateur de systèmes "Confidentiel Défense"</domaineEntreprise>
+				<lieuEntreprise>Saint-Denis</lieuEntreprise>
+				<duree>De Septembre 2017 à Septembre 2019</duree>
+			</titre>
+
+			<description>
+				Réalisation d’un logiciel de sauvegarde automatique des équipements actif de réseau
+				Intégration d’équipements actif de réseau
+				Déploiement d’un réseau sur un site client
+				Étude d’un réseau existant sur un site client
+				Conception et réalisation d’une plateforme de suivi des numéros de séries
+			</description>
+		</experience>
+
+		<experience>
+			<titre>
+				<intitule>Technicien IT</intitule>
+				<entreprise>Valtech</entreprise>
+				<domaineEntreprise>Marketing digital</domaineEntreprise>
+				<lieuEntreprise>Paris</lieuEntreprise>
+				<duree>De Juin 2017 à Juillet 2017</duree>
+			</titre>
+
+			<description>
+				Méthodes de diagnosctic
+				Prise en comptes d’incidents via système de ticketing
+				(déploiement de matériel, réinitialisation d’équipements et de
+				mots de passe, attribution de licences Office)
+				Les structures de réseau et système (Active Directory, DHCP,
+				DNS, VPN, Firewall)
+				Outils d’aide à distance
+				Outils de déploiement de machines (Microsoft et Apple)
+				Gestion de machines Virtuelles en environnement VMWare
+			</description>
+		</experience>
+	</experiencePro>
+
+	<realisationExtraScolaire>
+		<realisation>Développement d'un site basé sur Laravel dans le domaine des jeux-vidéos, code disponible sur GitHub. </realisation>
+		<realisation>Modération et administration de divers forums.</realisation>
+	</realisationExtraScolaire>
+
+	<atouts>
+		<atout>Sociable</atout>
+		<atout>Dynamique</atout>
+		<atout>Aime aider et partager</atout>
+	</atouts>
+
+	<competences>
+		<competence>Apte à travailler en équipe</competence>
+		<competence>Autodidacte</competence>
+		<competence>Autonome</competence>
+	</competences>
+
+	<formations>
+		<formation>
+			<nomFormation>Licence pro MICDTL</nomFormation>
+			<lieuFormation>IUT de villetaneuse</lieuFormation>
+			<dateFormation>Depuis septembre 2020</dateFormation>
+			<descriptionFormation></descriptionFormation>
+		</formation>
+
+		<formation>
+			<nomFormation>DUT Informatique</nomFormation>
+			<lieuFormation>IUT de villetaneuse</lieuFormation>
+			<dateFormation>2017-2020</dateFormation>
+			<descriptionFormation></descriptionFormation>
+		</formation>
+
+		<formation>
+			<nomFormation>BAC STI2D: spécialité Système Informatiques et Numériques</nomFormation>
+			<lieuFormation></lieuFormation>
+			<dateFormation></dateFormation>
+			<descriptionFormation>Obtention du Baccalauréat (mention AB)</descriptionFormation>
+		</formation>
+	</formations>
+
+	<langages>
+		<langage>PHP (Laravel)</langage>
+		<langage>Java / JavaScript</langage>
+		<langage>HTML / CSS</langage>
+		<langage>Python</langage>
+		<langage>SQL</langage>
+	</langages>
+
+	<reseaux>
+		<reseau nom="GitHub">/morbakos</reseau>
+		<reseau nom="LinkedIn">/alexisjacob1</reseau>
+	</reseaux>
+</CV>

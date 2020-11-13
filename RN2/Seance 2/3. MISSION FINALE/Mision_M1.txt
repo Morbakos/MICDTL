@@ -1,0 +1,224 @@
+REM ********************************************************
+REM Fichier SQL de création du schéma de la base FORMA
+REM Auteur : FESSY Jérôme
+REM ********************************************************
+SET LINESIZE 150
+SET FEEDBACK OFF
+
+REM ****** Suppression des tables qui existeraient deja sur votre compte
+REM ****** afin d'etre sur de pouvoir les creer par la suite
+
+DROP TABLE PERSONNEL CASCADE CONSTRAINTS purge;
+DROP TABLE STAGE CASCADE CONSTRAINTS purge;
+DROP TABLE SESSIONS CASCADE CONSTRAINTS purge;
+DROP TABLE ESTINSCRIT CASCADE CONSTRAINTS purge;
+
+
+REM ********************************************************************
+REM CREATION DES TABLES 
+REM ********************************************************************
+
+PROMPT ***CREATION DES TABLES ***
+
+CREATE TABLE PERSONNEL
+(
+NoPers INTEGER, 
+NomPers VARCHAR(20) CONSTRAINT NN_NomPers NOT NULL, 
+PrenomPers VARCHAR(20) CONSTRAINT NN_PrenomPers NOT NULL, 
+Sexe CHAR(1), 
+AnneeNaissance INTEGER
+);
+
+CREATE TABLE STAGE
+(
+RefStage VARCHAR2(5),
+Libelle VARCHAR2(55),
+LieuCours VARCHAR2(30), 
+PrixParticipant NUMBER(8,2) DEFAULT 0,
+RefStagePrecedent Varchar2(5)
+);
+
+CREATE TABLE SESSIONS
+(
+NoSession INTEGER, 
+RefStage VARCHAR2(5), 
+NombreDePlaces INTEGER DEFAULT 15
+)
+;
+
+CREATE TABLE ESTINSCRIT
+(NoPers INTEGER, 
+NoSession INTEGER
+)
+;
+
+PROMPT **** AJOUT DES CONTRAINTES ******
+ALTER TABLE STAGE
+ADD CONSTRAINT PK_STAGE PRIMARY KEY (RefStage);
+
+ALTER TABLE PERSONNEL
+ADD CONSTRAINT PK_PERSONNEL PRIMARY KEY (NoPers);
+
+ALTER TABLE SESSIONS
+ADD CONSTRAINT PK_SESSION PRIMARY KEY (NoSession);
+
+ALTER TABLE ESTINSCRIT
+ADD CONSTRAINT PK_ESTINSCRIT PRIMARY KEY (NoPers, NoSession);
+
+PROMPT PRIMARY KEY : OK
+
+
+REM ****** Ajout des Contraintes UNIQUE *******
+
+ALTER TABLE STAGE
+ADD CONSTRAINT U_Libelle UNIQUE(Libelle);
+
+PROMPT UNIQUE : OK
+
+REM ****** Ajout des Contraintes Check *******
+
+
+ALTER TABLE PERSONNEL
+ADD CONSTRAINT CK_Sexe1 CHECK(Sexe IN ('M','m','F','f'));
+
+
+ALTER TABLE STAGE
+ADD CONSTRAINT CK_Stage_PrixSup140 CHECK(PrixParticipant >=140);
+
+ALTER TABLE SESSIONS
+ADD CONSTRAINT CK_Nbre_Place CHECK(NombreDePlaces BETWEEN 1 AND 15);
+
+
+PROMPT CHECK : OK
+
+REM ****** Ajout des contraintes d'intégrité référentielles *******
+
+ALTER TABLE SESSIONS
+ADD CONSTRAINT FK_SESSION_STAGE FOREIGN KEY(RefStage) REFERENCES STAGE(RefStage);
+
+ALTER TABLE STAGE
+ADD CONSTRAINT FK_Stage_Precedent FOREIGN KEY(RefStagePrecedent) REFERENCES STAGE(RefStage);
+
+ALTER TABLE ESTINSCRIT
+ADD CONSTRAINT FK_INSCRIT_PERS FOREIGN KEY(NoPers) REFERENCES PERSONNEL(NoPers)
+ADD CONSTRAINT FK_INSCRIT_SESSION FOREIGN KEY(NoSession) REFERENCES SESSIONS(NoSession);
+
+PROMPT REFRENCES : OK
+
+
+REM ********************************************************
+REM Insertion des données
+REM ********************************************************
+
+REM ** Insertions dans la table STAGE**
+
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('ORM', 'Oracle Prise en Main', 'Paris', 1610);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('OSL', 'SQL', 'Paris',1200);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('OBJ', 'Programmation Objet', 'Lyon', 1300);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('POS', 'PostgreSQL', 'Paris', 1340);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('ADM', 'Oracle Administration', 'Lyon', 1450);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('BDS', 'Séminaire Bases de Données', 'Paris', 1800);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('WWW', 'Internet Web', 'Lyon', 1200);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('PHP', 'Langage PHP', 'Lyon', 1400);
+INSERT INTO STAGE(RefStage,Libelle,LieuCours,PrixParticipant)  VALUES ('IOT', 'Objets connectés', 'Paris', 1800);
+
+REM ** Insertions dans la table PERSONNEL**
+
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (1, 'Partoin', 'Luc', 'M', 1978);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (2, 'Martec', 'Lucie', 'F', 1960);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (3, 'Pioret', 'Lucas', 'M', 1958);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (4, 'Artein', 'Marc', 'M', 1989);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (5, 'Drate', 'Michel', 'M', 1962);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (6, 'Arety', 'Soisic', 'F', 1987);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (7, 'Cerat', 'Dominique', 'F', 1961);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (8, 'Ecmle', 'Florence', 'F', 1945);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (9, 'Wirkowski', 'Paul', 'M', 1939);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (10, 'Yart', 'Boby', 'M', 1956);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (11, 'Erano', 'Lucienne', 'F', 1996);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (12, 'Troncbu', 'Krist', 'M', 1956);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (13, 'Emery', 'Jean', 'M', 1977);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (14, 'Exbraya', 'Luc', 'M', 1967);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (15, 'Lingh', 'Hector', 'M', 1945);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (16, 'Rasteau', 'Léon', 'M', 1965);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (17, 'Gabernay', 'Marie', 'F', 1942);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (18, 'Lebeugue', 'Lucie', 'F', 1980);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (19, 'TonBute', 'Marc', 'M', 1977);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (20, 'Pinot', 'Antoine', 'M', 1937);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (21, 'Laruelle', 'Jean', 'M', 1945);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (22, 'Picard', 'Eric', 'M', 1968);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (23, 'Janoti', 'Florence', 'F', 1966);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (24, 'Dontcry', 'Argentina', 'F', 1956);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (25, 'Seigne', 'Jean', 'M', 1981);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (26, 'Sation', 'Luc', 'M', 1954);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (27, 'Daire', 'Paule', 'F', 1939);
+INSERT INTO PERSONNEL(NoPers,NomPers, PrenomPers,Sexe, AnneeNaissance) VALUES (28, 'Kyroul', 'Pierre', 'M', 1944);
+
+
+REM ** Insertions dans la table SESSION et de leurs inscriptions
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (1, 'ORM',3);
+
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (1, 1);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (2, 1);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (3, 1);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (2, 'ORM',2);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (3, 'ORM',10);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (4, 'ORM',12);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (8, 4);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (9, 4);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (5, 'ORM',15);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (1, 5);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (2, 5);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (7, 5);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (3, 5);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (6, 5);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (9, 5);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (6, 'OSL',13);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (7, 'OSL',10);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (8, 'OSL',11);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (9, 'OSL',15);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (10, 'OSL',13);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (11, 10);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (12, 10);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (17, 10);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (13, 10);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (16, 10);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (11, 'OSL',14);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (12, 'OSL',7);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (13, 'OSL',8);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (14, 'OBJ',10);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (15, 'OBJ',11);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (16, 'OBJ',12);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (17, 'ADM',11);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (18, 'ADM',4);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (1, 18);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (17, 18);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (13, 18);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (16, 18);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (19, 'BDS',13);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (20, 'BDS',13);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (21, 'POS',10);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (22, 'POS',14);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (23, 'POS',9);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (24, 'POS',10);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (25, 'POS',11);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (26, 'PHP',11);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (27, 'PHP',12);
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (28, 'WWW',15);
+
+INSERT INTO SESSIONS(NoSession,RefStage,NombreDePlaces) VALUES (29, 'IOT',3);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (1, 29);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (6, 29);
+INSERT INTO ESTINSCRIT(NoPers,NoSession)	VALUES (9, 29);
+
+PROMPT INSERTION DONNEES -> OK
+
+COMMIT;
+SET FEEDBACK ON
+

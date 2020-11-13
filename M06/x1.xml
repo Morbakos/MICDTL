@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!-- <!DOCTYPE A SYSTEM "x1.dtd"> pour le DTD externe-->
+<!DOCTYPE A [<!ELEMENT A (B+,C,E)>
+<!ELEMENT B (E+)>
+<!ELEMENT C (F)>
+<!ELEMENT E EMPTY>
+<!ATTLIST E nb CDATA #REQUIRED>
+<!ELEMENT F (#PCDATA)>]>
+
+<A>
+	<B>
+		<E nb="4"></E>
+		<E nb="3"></E>
+	</B>
+
+	<B>
+		<E nb="1"></E>
+	</B>
+	
+	<C>
+		<F>
+			a
+		</F>	
+	</C>
+
+	<E nb="2">
+		
+	</E>
+</A>
