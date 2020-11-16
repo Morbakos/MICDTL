@@ -50,8 +50,8 @@ public class VolEnFormation {
     }
 
     public String toString() {
-        String resultat = "Le vol en formation contient" + this.nbDeVaisseaux() + ", vole à " + this.getAltitudeVol()
-                + "m d'altitutes, est situé en " + this.position.toString() + "et est composé de :\n";
+        String resultat = "Le vol en formation contient " + this.nbDeVaisseaux() + " vaisseaux, vole à " + this.getAltitudeVol()
+                + "m d'altitudes, est situé en " + this.position.toString() + "et est composé de :\n";
         for (int i = 0; i < this.nbDeVaisseaux(); i++) {
             resultat = resultat + this.vaisseaux[i].toString() + "\n";
         }
@@ -70,6 +70,7 @@ public class VolEnFormation {
 
     public void appliqueAltitudeDeVol (double alt){
         if (this.altitudeValide(alt)) {
+            this.altitudeVol = alt;
             for (int i = 0; i < this.vaisseaux.length; i++) {
                 vaisseaux[i].setAltitude(alt);
             }
