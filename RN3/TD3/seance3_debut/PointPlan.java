@@ -1,5 +1,5 @@
 /**
- * Décrit un point du plan decrit par des coordonnées cartésiennes
+ * Decrit un point du plan decrit par des coordonnees cartesiennes
  * @version 1.1
  * @author Guillaume Santini
  */
@@ -8,10 +8,10 @@
 public class PointPlan
 {
 	// -----------------------------------------------------------
-	// Les attributs sont privés
+	// Les attributs sont prives
 
 	private double abscisse ;
-	private double ordonnée ;
+	private double ordonnee ;
 	private String nom ;
 
 	// -----------------------------------------------------------
@@ -22,7 +22,7 @@ public class PointPlan
 	 */
 	public PointPlan( double x, double y, String nom) {
 		this.setAbscisse(x) ;
-		this.setOrdonnée(y) ;
+		this.setOrdonnee(y) ;
 		this.setNom( nom );
 	}
 
@@ -39,7 +39,7 @@ public class PointPlan
 	 */
 	public PointPlan(PointPlan p) {
 		this.abscisse = p.abscisse ;
-		this.ordonnée = p.ordonnée ;
+		this.ordonnee = p.ordonnee ;
 		this.nom = new String( p.nom ) ;
 	}
 	
@@ -63,19 +63,19 @@ public class PointPlan
 	} 
 
 	/**
-	 * Retourne l'ordonnée du point
-	 * @return l'ordonnée
+	 * Retourne l'ordonnee du point
+	 * @return l'ordonnee
 	 */
-	public double getOrdonnée() {
-		return this.ordonnée ;
+	public double getOrdonnee() {
+		return this.ordonnee ;
 	}
 
 	/**
-	 * Fixe l'ordonnée du point
-	 * @param y l'ordonnée
+	 * Fixe l'ordonnee du point
+	 * @param y l'ordonnee
 	 */
-	public void setOrdonnée(double y) {
-		this.ordonnée = y ;
+	public void setOrdonnee(double y) {
+		this.ordonnee = y ;
 	} 
 
 	/**
@@ -95,25 +95,25 @@ public class PointPlan
 	} 
 
 	// -----------------------------------------------------------
-	// Autres méthodes
+	// Autres methodes
 
 	/**
-	 * Translate le point selon le vecteur de coordonnées ( dx, dy)
+	 * Translate le point selon le vecteur de coordonnees ( dx, dy)
 	 * @param dx distance de translation selon l'axe des abscisses
-	 * @param dy distance de translation selon l'axe des ordonnées
+	 * @param dy distance de translation selon l'axe des ordonnees
 	 */  
 	public void translate( double dx, double dy){
 		this.setAbscisse( this.getAbscisse() + dx) ;
-		this.setOrdonnée( this.getOrdonnée() + dy) ;
+		this.setOrdonnee( this.getOrdonnee() + dy) ;
 	}
 
 	/**
-	 * Retourne la distance séparant le point de l'orirgine du repère
+	 * Retourne la distance separant le point de l'orirgine du repère
 	 * @return la distance à l'origine
 	 */
 	private double distAOrigine(){
 		return Math.sqrt(Math.pow(this.getAbscisse(), 2) +
-						Math.pow(this.getOrdonnée (), 2)  );
+						Math.pow(this.getOrdonnee (), 2)  );
 	}
 
 	/**
@@ -129,31 +129,31 @@ public class PointPlan
 		double module = this.distAOrigine();
 
 		// calcul de l’arguement
-		double argument = Math.atan(this.getOrdonnée() / this.getAbscisse()) ;
+		double argument = Math.atan(this.getOrdonnee() / this.getAbscisse()) ;
 
-		// Retour des résultats stockés dans un objet PointPlolaire 
+		// Retour des resultats stockes dans un objet PointPlolaire 
 		return new PointPolaire( module, argument, this.getNom()+"") ;
 	}
 	
 	/**
-	 * Retourne le point symétrique (par symétrie centrale relatif à l'origine
-	 * du repère. Le nom donné au symétrique est celui du point courant 
-	 * augmenté de "sym"
-	 * @return le point symétrique
+	 * Retourne le point symetrique (par symetrie centrale relatif à l'origine
+	 * du repère. Le nom donne au symetrique est celui du point courant 
+	 * augmente de "sym"
+	 * @return le point symetrique
 	 */
-	public PointPlan symétrique() {
-		return new PointPlan(-this.getAbscisse(),-this.getOrdonnée(), this.getNom()+"sym");
+	public PointPlan symetrique() {
+		return new PointPlan(-this.getAbscisse(),-this.getOrdonnee(), this.getNom()+"sym");
 	}
 
 	// -----------------------------------------------------------
-	// Redéfinition de méthodes
+	// Redefinition de methodes
 	
 	/**
 	 * Affichage du contenu de l’objet
-	 * @return chaîne de caractère décrivant l'état courant de l'instance
+	 * @return chaîne de caractère decrivant l'etat courant de l'instance
 	 */
 	public String toString() { 
-		return( "x = " + this.getAbscisse() + ", y = " + this.getOrdonnée()) ;
+		return( "x = " + this.getAbscisse() + ", y = " + this.getOrdonnee()) ;
 	}
 
 

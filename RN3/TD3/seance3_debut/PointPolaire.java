@@ -1,5 +1,5 @@
 /**
- * Décrit un point du plan décrit par des coarguments poliares
+ * Decrit un point du plan decrit par des coarguments poliares
  * @version 1.1
  * @author Guillaume Santini
  */
@@ -8,7 +8,7 @@
 public class PointPolaire
 {
 	// -----------------------------------------------------------
-	// Les attributs sont privés
+	// Les attributs sont prives
 
 	private double module ;
 	private double argument ;
@@ -97,11 +97,11 @@ public class PointPolaire
 	} 
 
 	// -----------------------------------------------------------
-	// Autres méthodes
+	// Autres methodes
 
 
 	/**
-	 * Retourne la distance séparant le point de l'orirgine du repère
+	 * Retourne la distance separant le point de l'orirgine du repère
 	 * @return la distance à l'origine
 	 */
 	private double distAOrigine(){
@@ -110,11 +110,11 @@ public class PointPolaire
 
 
 	// -----------------------------------------------------------
-	// Redéfinition de méthodes
+	// Redefinition de methodes
 	
 	/**
 	 * Affichage du contenu de l’objet
-	 * @return chaîne de caractère décrivant l'étaut courant de l'instance
+	 * @return chaîne de caractère decrivant l'etaut courant de l'instance
 	 */
 	public String toString() { 
 		return( "mod = " + this.getModule() + ", arg = " + this.getArgument()) ;

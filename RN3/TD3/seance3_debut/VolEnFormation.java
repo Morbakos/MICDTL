@@ -1,5 +1,5 @@
 /**
- * Décrit un Vol en formation composé de plusieurs Vaisseau
+ * Decrit un Vol en formation compose de plusieurs Vaisseau
  * @version 1.1
  * @author Guillaume Santini
  */
@@ -9,20 +9,20 @@ public class VolEnFormation {
 	// Variables d'instance
 	private Vaisseau [] formation ;
 	private PointPlan position ;
-	private double altitudeFixée ;
+	private double altitudeFixee ;
 
 	// Constructeurs -------------------------------------
 	/**
 	 * Constructeur champ à champ
 	 * @param formation le tableau des vaisseaux de la formation
 	 * @param posX l'abscisse de la position de la formation
-	 * @param posY l'ordonnée de la position de la formation
-	 * @param altitude l'altitude fixée pour la formation 
+	 * @param posY l'ordonnee de la position de la formation
+	 * @param altitude l'altitude fixee pour la formation 
 	 */
 	public VolEnFormation( Vaisseau [] formation, double posX, double posY, double altitude) {
 		this.formation = formation ;
 		this.position = new PointPlan( posX, posY, "Position") ;
-		this.altitudeFixée = altitude ;
+		this.altitudeFixee = altitude ;
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class VolEnFormation {
 		for( int i = 0 ; i < this.formation.length ; i++ )
 			this.formation[i] = new Vaisseau( vol.formation[i] ) ;
 		this.position = new PointPlan( vol.position ) ;
-		this.altitudeFixée = vol.altitudeFixée ;
+		this.altitudeFixee = vol.altitudeFixee ;
 	}
 
 	// Accesseur Getter/Setter  --------------------------
@@ -55,9 +55,9 @@ public class VolEnFormation {
 	}
 
 	/**
-	 * Retourne le ième Vaisseau de la formation et null si i dépasse la taille du tableau
+	 * Retourne le ième Vaisseau de la formation et null si i depasse la taille du tableau
 	 * @param i le numero du Vaisseau
-	 * @return le Vaisseau numéro i
+	 * @return le Vaisseau numero i
 	 */
 	public Vaisseau getVaisseau(int i) {
 		if ( i < this.getFormation().length )
@@ -84,11 +84,11 @@ public class VolEnFormation {
 	}
 
 	/**
-	 * Retourne l'ordonnée de la position de la formation
-	 * @return l'ordonnée de la position de la formation
+	 * Retourne l'ordonnee de la position de la formation
+	 * @return l'ordonnee de la position de la formation
 	 */
-	public double getOrdonnée() {
-		return this.position.getOrdonnée();
+	public double getOrdonnee() {
+		return this.position.getOrdonnee();
 	}
 
 	/**
@@ -100,33 +100,33 @@ public class VolEnFormation {
 	}
 	
 	/**
-	 * Fixe l'ordonnée de la position de la formation
-	 * @param newY l'ordonnée de la position de la formaiton
+	 * Fixe l'ordonnee de la position de la formation
+	 * @param newY l'ordonnee de la position de la formaiton
 	 */
-	public void setOrdonnée( double newY) {
-		this.position.setOrdonnée( newY );
+	public void setOrdonnee( double newY) {
+		this.position.setOrdonnee( newY );
 	}
 	
 	/**
-	 * Retourne l'altitude fixée pour la formation
-	 *  @return l'altitude fixée pour la formation
+	 * Retourne l'altitude fixee pour la formation
+	 *  @return l'altitude fixee pour la formation
 	 */
-	public double getAltitudeFixée() {
-		return this.altitudeFixée;
+	public double getAltitudeFixee() {
+		return this.altitudeFixee;
 	}
 	
 	/**
 	 * Fixe l'altitude de la formation
-	 * @param newAlt l'altitude fixée
+	 * @param newAlt l'altitude fixee
 	 */
-	public void setAltitudeFixée( double newAlt ) {
-		this.altitudeFixée = newAlt ;
+	public void setAltitudeFixee( double newAlt ) {
+		this.altitudeFixee = newAlt ;
 		if ( ! this.altitudeValide() )
-			this.setAltitudeFixée( 1000. );
+			this.setAltitudeFixee( 1000. );
 	}  
 
 	// -----------------------------------------------------------
-	// Autres méthodes
+	// Autres methodes
 	/**
 	 * Retourne le nombre de Vaisseau constituant la formation
 	 * @return le nombre de Vaisseau de la formation
@@ -136,23 +136,23 @@ public class VolEnFormation {
 	}
 
 	/**
-	 * Méthode publique de test de l'altitude. Permet de
-	 * savoir si l'altitude de vol prévue pour la formation
+	 * Methode publique de test de l'altitude. Permet de
+	 * savoir si l'altitude de vol prevue pour la formation
 	 * est au dessus du sol!
 	 * @return true si l'altitde de la formation est au
 	 *         dessus de l'altitude 0.
 	 */
 	public boolean altitudeValide() {
-		return ( 0. < this.getAltitudeFixée());
+		return ( 0. < this.getAltitudeFixee());
 	}
 
 	/**
-	 * Répercute l'altitude de vol (transmet) aux
+	 * Repercute l'altitude de vol (transmet) aux
 	 * vaisseaux qui composent la formation de vol
 	 **/
 	public void appliqueAltitudeDeVol() {
 		for( int i = 0 ; i < this.nbDeVaisseaux(); i++)
-			this.getVaisseau( i ).setAltitude(this.getAltitudeFixée()) ;
+			this.getVaisseau( i ).setAltitude(this.getAltitudeFixee()) ;
 	}
 	
 	/**
@@ -168,13 +168,13 @@ public class VolEnFormation {
 	}
 	
 	/**
-	 * Déplace la formation.
-	 * @param dx valeur du déplacement selon l'axe des abscisses
-	 * @param dy valeur du déplacement selon l'axe des ordonnées
+	 * Deplace la formation.
+	 * @param dx valeur du deplacement selon l'axe des abscisses
+	 * @param dy valeur du deplacement selon l'axe des ordonnees
 	**/
-	void déplacement( double dx, double dy ) {
+	void deplacement( double dx, double dy ) {
 		this.setAbscisse( this.getAbscisse() + dx );
-		this.setOrdonnée( this.getOrdonnée() + dy );
+		this.setOrdonnee( this.getOrdonnee() + dy );
 	}
 	
 	/**
@@ -185,17 +185,17 @@ public class VolEnFormation {
 	}
 
 	// -----------------------------------------------------------
-	// Redéfinition de mc String toString()
+	// Redefinition de mc String toString()
 	/**
 	 * Affichage du contenu de l’objet
-	 * @return chaîne de caractère décrivant l'état courant de l'instance
+	 * @return chaîne de caractère decrivant l'etat courant de l'instance
 	 */
 	public String toString() {
 		String desc = "";
 		desc += "--------------------------------------\n";
 		desc += "+- Vol En Formation\n";
-		desc += "   |- Altitude : " + this.getAltitudeFixée() + "\n" ;
-		desc += "   |- Position : (" + this.getAbscisse() + "," + this.getOrdonnée() + ")\n" ;
+		desc += "   |- Altitude : " + this.getAltitudeFixee() + "\n" ;
+		desc += "   |- Position : (" + this.getAbscisse() + "," + this.getOrdonnee() + ")\n" ;
 		for (int i = 0; i < this.nbDeVaisseaux(); i++) {
 			desc += "   |- Vaisseau " + i + " : " + "\n" ;
 			desc += this.getVaisseau(i) + "\n";

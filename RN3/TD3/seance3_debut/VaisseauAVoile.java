@@ -1,14 +1,14 @@
 /**
- * Décrit un vaisseau a voile
+ * Decrit un vaisseau a voile
  * @version 1.0
  * @author Guillaume Santini
  */
 public class VaisseauAVoile extends Vaisseau
 {
 	/**
-	 * Affiche le départ
+	 * Affiche le depart
 	 */
-	public void départ()
+	public void depart()
 	{
 		System.out.println("Je mets les voiles.");
 	}

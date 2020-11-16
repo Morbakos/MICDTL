@@ -5,12 +5,12 @@
  */
 
 
-// définition d’une classe de Test pour un vaisseau
+// definition d’une classe de Test pour un vaisseau
 public class TestVaisseau
 {
 	public static void main(String [] args) {
 		Vaisseau xwingT65 ;
-		xwingT65 = new Vaisseau("Chasseur Léger", 2, 10000) ;
+		xwingT65 = new Vaisseau("Chasseur Leger", 2, 10000) ;
 		Vaisseau stalker;
 		stalker = new Vaisseau("Vaisseau Lourd", 46785, 1800000) ;
 		Vaisseau surprise = xwingT65 ;

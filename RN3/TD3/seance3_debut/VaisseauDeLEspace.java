@@ -1,14 +1,14 @@
 /**
- * Décrit un vaisseau de l'espace
+ * Decrit un vaisseau de l'espace
  * @version 1.0
  * @author Guillaume Santini
  */
 public class VaisseauDeLEspace extends Vaisseau
 {
 	/**
-	 * Affiche le départ
+	 * Affiche le depart
 	 */
-	public void départ()
+	public void depart()
 	{
 		System.out.println("Je lance les moteurs a fusion.");
 	}
@@ -18,7 +18,7 @@ public class VaisseauDeLEspace extends Vaisseau
 	 */
 	public void percute()
 	{
-		System.out.println("Je dépressurise.");
+		System.out.println("Je depressurise.");
 	}
 }
 
