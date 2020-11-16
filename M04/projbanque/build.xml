@@ -1,0 +1,23 @@
+<project name="projbanque" default="compile" basedir="./">
+
+    <property name="source" value="${basedir}/src/" />
+    <property name="classes" value="${basedir}/bin/" />
+
+    <target name="compile" depends="prepare">
+        <echo message="Compilation en cours"/>
+        <javac srcdir="${source}" destdir="${classes}"/>
+        <echo message="Compilation terminée"/>
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${basedir}/bin"></mkdir>
+    </target>
+
+    <target name="clean">
+        <delete file="${basedir}/bin/Banque.class"></delete>
+        <delete file="${basedir}/bin/Compte.class"></delete>
+        <delete file="${basedir}/bin/TestBanque.class"></delete>
+    </target>
+
+
+</project>

@@ -1,0 +1,52 @@
+<project name="projbanque" default="build" basedir="./">
+    <property file="build.properties" />
+
+    <target name="compileAll" depends="prepare" if="${lib}">
+        <javac srcdir="${source}" destdir="${basedir}/${classes}" />
+    </target>
+
+    <target name="compile" depends="prepare" unless="${lib}">
+        <javac srcdir="${source}" destdir="${basedir}/${classes}" excludes="TestBanque.java" />
+    </target>
+
+    <target name="prepare" depends="input, clean, cleanJar">
+        <mkdir dir="${basedir}/${classes}"></mkdir>
+        <mkdir dir="${app}"></mkdir>
+    </target>
+
+    <target name="clean">
+        <delete file="${basedir}/${classes}/Banque.class"></delete>
+        <delete file="${basedir}/${classes}/Compte.class"></delete>
+        <delete file="${basedir}/${classes}/TestBanque.class"></delete>
+        <!-- <delete file="${app}/app.jar"></delete> -->
+    </target>
+
+    <target name="cleanJar" if="${cleanJar}">
+        <delete file="${app}/app.jar"></delete>
+    </target>
+
+    <target name="TestBanque" depends="compileAll">
+        <java classpath="${basedir}/${classes}" classname="TestBanque"/>
+    </target>
+
+    <target name="build" depends="compileAll,compile, checkJar" unless="${found}">
+        <jar destfile="${app}/app.jar" basedir="${basedir}/${classes}">
+            <manifest>
+                <attribute name="Main-Class" value="TestBanque"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="input">
+        <input message="Please enter name for folder:" addproperty="classes" />
+    </target>
+
+    <target name="checkJar">
+        <available file="${app}/app.jar" property="found"/>
+        <antcall target="checkMessage"/>
+    </target>
+
+    <target name="checkMessage" if="${found}">
+        <echo message="Le fichier .jar existe"/>
+    </target>
+</project>

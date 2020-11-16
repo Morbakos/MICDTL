@@ -1,0 +1,4 @@
+grant codeBase "file:/users/buscaldi/Teaching/M9reseaux/RMI/TP" {
+    permission java.security.AllPermission;
+};
+
