@@ -1,25 +1,16 @@
-public class Personnel {
-    private String nom ;
-	private int    age ;
+public class Personnel extends Personne {
+    
     private int    numeroProfessionnel ;
     private String service ;
     
     public Personnel(String nom, int age, int numero, String service){
-        this.setNom(nom);
-        this.setAge(age);
+        super(nom, age);
         this.setNumeroProfessionnel(numero);
         this.setService(service);
     }
 
     //==== Getter / Setter
 
-    public void setNom(String nom){
-        this.nom = nom;
-    }
-
-    public void setAge(int age){
-        this.age = age;
-    }
 
     public void setNumeroProfessionnel(int numero){
         this.numeroProfessionnel = numero;
@@ -29,9 +20,14 @@ public class Personnel {
         this.service = s ; 
     }
 
-    public String getNom( ) { return this.nom ; }
-	public    int getAge( ) { return this.age ; }
 	public    int getNumeroProfessionnel ( ) { return this.numeroProfessionnel ; }
 	public String getService( ) { return this.service ; }
-	
+    
+    public String toString() {
+        String res = "Personnel[ " ;
+        res += super.toString() + ", ";
+        res += "Numero pro : " + this.getNumeroProfessionnel() + ", ";
+		res += "Service : " + this.getService() + "]" ;
+		return res ;
+	}
 }

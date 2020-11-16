@@ -5,10 +5,10 @@ public class Passager extends Personne {
 	
 	public void setNumeroDeBillet ( int n ) { this.numeroDeBillet = n ; }
 
-	public int getNumeroDeBillet ( ) { return this.numeroDeBillet ; }
+	public    int getNumeroDeBillet ( ) { return this.numeroDeBillet ; }
 
 	public Passager( String nom, int age, int numeroDeBillet) {
-		super(nom, age);
+		super( nom, age) ;
 		this.setNumeroDeBillet( numeroDeBillet) ;
 	}
 	
@@ -17,6 +17,13 @@ public class Passager extends Personne {
 		res += super.toString() + ", ";
 		res += "n° de billet : " + this.getNumeroDeBillet() + "]";
 		return res ;
+	}
+	
+	public boolean equals( Object o ) {
+		if ( ! ( o instanceof Passager ) ) 
+			return false ;
+		Passager p = (Passager) o ;
+		return ( super.equals( p ) && this.getNumeroDeBillet() == p.getNumeroDeBillet() ) ;
 	}
 }
 
