@@ -1,0 +1,9 @@
+<result>
+{
+	for $r in doc("guide.xml")//Restaurant where $r/Adresse/Ville = "Geneve" return
+	<Restaurant> 
+		{$r/Adresse}
+		{$r/Nom}
+	</Restaurant>
+}
+</result>

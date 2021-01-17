@@ -1,0 +1,5 @@
+<NbResto>
+{
+    count(doc("Guide.xml")//Restaurant)
+}    
+</NbResto>

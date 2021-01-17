@@ -1,0 +1,12 @@
+<q4>
+    {
+        for $h in doc("Repertoire.xml")//Hotel
+        where
+            contains($h//Rue/text() , "Pont")
+            or contains($h//Ville/text() , "Pont")
+        return
+            <att>
+                {$h//@*}
+            </att>
+    }
+</q4>

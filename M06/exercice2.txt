@@ -1,0 +1,23 @@
+Question 1
+//composition/text()
+descendant-or-self::node()/child::performance/child::composition/text()
+
+Question 2
+//*[@*]
+descendant-or-self::node()[attribute::*] 
+
+Question 3
+//composition[../soloist]/text()
+descendant-or-self::node()/child::performance/child::composition[../soloist]/text()
+
+Question 4
+//performance[not(soloist) and orchestra]/@id
+descendant-or-self::node()/child::performance[not(soloist) and orchestra]/@id
+
+Question 5
+//soloist[(../../publisher/text() = "Deutsche Grammophon") and (../orchestra/text() = "London Symphony Orchestra")]/text()
+descendant-or-self::node()/child::performance/child::soloist[(parent::node()/parent::node()/child::publisher/text() = "Deutsche Grammophon") and (parent::node()/child::orchestra/text() = "London Symphony Orchestra")]/text()
+
+Question 6
+//CD[performance/orchestra/text() = "Berlin Philharmonic"]/@nom
+descendant-or-self::node()[descendant-or-self::node()/descendant-or-self::node()/child::orchestra/text() = "Berlin Philharmonic"]/@nom

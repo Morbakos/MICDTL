@@ -1,0 +1,20 @@
+<Guide Version="3.0">
+	<Restaurant type="auberge" categorie="**">
+		<Nom>Le Vieux Moulin</Nom>
+		<Adresse><Rue>du Salève</Rue><Ville>Drize</Ville> </Adresse>
+		<Gérant>Dufourneau</Gérant>
+	</Restaurant>
+	<Restaurant type="italien" categorie="***">
+		<Nom>Mamma Mia</Nom>
+		<Adresse><Rue>Georges Favon</Rue><Ville>Geneve</Ville> </Adresse>
+		<Gérant>Maldini</Gérant>
+	</Restaurant>
+	<Restaurant type="gastronomique" categorie="***">
+		<Nom>L'Epicurien</Nom>
+		<Adresse><Rue>Bourg-de-Four</Rue><Ville>Geneve</Ville> </Adresse>
+	</Restaurant>
+	<Bar>
+		<Nom>Le Tuyau</Nom>
+		<Adresse><Rue>Passage Monetier</Rue><Ville>Geneve</Ville> </Adresse>
+	</Bar>
+</Guide>

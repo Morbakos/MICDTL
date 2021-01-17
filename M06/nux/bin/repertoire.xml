@@ -1,0 +1,18 @@
+<Répertoire Version="1.0">
+	<Hotel confort="***">
+		<Nom>Suisse</Nom>
+		<Adresse><Rue>Cornavin</Rue><Ville NP="1201">Geneve</Ville></Adresse>
+	</Hotel>
+	<Hotel confort="**">
+		<Nom>Les Tourelles</Nom>
+		<Adresse><Rue>Georges Favon</Rue><Ville NP="1204">Geneve</Ville></Adresse>
+	</Hotel>
+	<Hotel confort="****">
+		<Nom>Edelweiss</Nom>
+		<Adresse><Rue>Rigistrasse</Rue><Ville NP="6002">Lucerne</Ville></Adresse>
+	</Hotel>
+	<Hotel confort="***">
+		<Nom>Hotel de la Truite</Nom>
+		<Adresse><Rue>Poste</Rue><Ville NP="1342">Le Pont</Ville></Adresse>
+	</Hotel>
+</Répertoire>

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        
+    <xs:element name="examen" type="TypeExemen"/>
+
+    <xs:complexType name="TypeExemen">
+        <xs:sequence>
+            <xs:element name="date" type="TypeDate"/>
+            <xs:element name="exercice" type="TypeExercice" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="code" use="required" type="xs:token"/>
+        <xs:attribute name="titre" use="required" type="xs:string"/>
+    </xs:complexType>  
+
+    <xs:complexType name="TypeDate">
+        <xs:attribute name="jour" use="required" type="TypeJour"/>
+        <xs:attribute name="mois" use="required" type="TypeMois"/>
+        <xs:attribute name="annee" use="required" type="TypeAnnee"/>
+    </xs:complexType> 
+
+    <xs:complexType name="TypeExercice">
+        <xs:sequence>
+            <xs:element ref="question" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="titre" use="optional" type="xs:string"/>
+    </xs:complexType> 
+
+    <xs:element name="question" type="TypeQuestion"/>
+
+    <xs:complexType name="TypeQuestion" mixed="true">
+        <xs:sequence>
+            <xs:element ref="question" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="corrige"  type="TypeCorrige" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="bareme" use="required" type="TypeBareme"/>
+    </xs:complexType>         
+
+    <xs:simpleType name='TypeJour'>
+        <xs:restriction base='xs:integer'>
+            <xs:minInclusive value='1'/> 
+            <xs:maxInclusive value='31'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name='TypeMois'>
+        <xs:restriction base='xs:string'>
+            <xs:enumeration value='jan' />
+            <xs:enumeration value='fev' />
+            <xs:enumeration value='mar' />
+            <xs:enumeration value='avr' />
+            <xs:enumeration value='mai' />
+            <xs:enumeration value='jun' />
+            <xs:enumeration value='jui' />
+            <xs:enumeration value='aou' />
+            <xs:enumeration value='sep' />
+            <xs:enumeration value='oct' />
+            <xs:enumeration value='nov' />
+            <xs:enumeration value='dec' />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name='TypeAnnee'>
+        <xs:restriction base='xs:integer'>
+            <xs:minInclusive value='2007'/> 
+            <xs:maxInclusive value='2012'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name='TypeBareme'>
+        <xs:restriction base='xs:integer'>
+            <xs:minInclusive value='1'/> 
+            <xs:maxInclusive value='20'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="TypeCorrige" >
+        <xs:simpleContent> 
+            <xs:extension base="xs:string"> 
+                <xs:attribute name="lien" type="TypeFichier" use="optional"/> 
+            </xs:extension> 
+        </xs:simpleContent>
+    </xs:complexType>  
+    
+    <xs:simpleType name='TypeFichier'>
+        <xs:restriction base='xs:string'>
+            <xs:pattern value='.*(\.xsl|\.xml|\.txt)'/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

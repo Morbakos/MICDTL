@@ -4,8 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d89c182-594b-4e1a-8bb2-13b97e485714" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../RN2/Seance 3/2. MISSION/RealisationMission.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../RN2/Seance 3/2. MISSION/RealisationMission.sql" afterDir="false" />
+    <list default="true" id="952c106d-967b-499d-b94e-4ca1a3b2f755" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../M06/cd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../M06/cd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/CityRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/JpaExampleApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/Rent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/RestWebService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/Van.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/java/com/efrei/JPAExample/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JPAExample-master/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +36,17 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1mbuzWXduN9D4EHWRRiFxvVbqxe" />
+  <component name="ProjectId" id="1n45wWPLCCkVi3WDkncLjOxf5X5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JPAExample-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="JpaTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -54,24 +80,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1d89c182-594b-4e1a-8bb2-13b97e485714" name="Default Changelist" comment="" />
-      <created>1609774873767</created>
+      <changelist id="952c106d-967b-499d-b94e-4ca1a3b2f755" name="Default Changelist" comment="" />
+      <created>1610636768596</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609774873767</updated>
+      <updated>1610636768596</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

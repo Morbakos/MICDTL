@@ -1,0 +1,13 @@
+<q2>
+    {
+        for $r in doc("Guide.xml")//Restaurant
+        for $h in doc("Repertoire.xml")//Hotel
+        where  
+            $h//Nom = "Les Tourelles"
+            and $r//Rue/text() = $h//Rue/text()
+        return
+            <Restaurant>
+                {$r/Nom}
+            </Restaurant>
+    }
+</q2>
