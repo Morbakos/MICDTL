@@ -1,0 +1,42 @@
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<examen code="C2" titre="DST_pipo"> 
+  <date jour=« 20" mois=« nov" annee="2020"/>
+  <exercice titre="Exo1">
+    <question bareme="10">
+      <question bareme="5">
+       Quelle est la couleur du cheval blanc d’Henry IV ?
+       <corrige lien="blanc.txt"/>
+     </question>
+     <question bareme="5">
+      <corrige>Volta</corrige>
+      Qui a inventé la pile ?
+    </question>
+  </question>
+  <question bareme="4">
+   <corrige>39.75</corrige>
+   Quelle est la vitesse moyenne des courreurs cyclistes lors du tour de     France ,à 5km/h près ?
+ </question>
+ <question bareme="4">
+  Qui a assassiné Henri IV ?
+
+  <corrige>Ravaillac</corrige>
+</question>
+<question bareme="2" >
+  <corrige>Francois 1er</corrige>
+  Qui a construit le chateau fort du Louvre ?
+</question>
+</exercice>
+<exercice titre="Exo1">
+  <question bareme="20">
+    <question bareme="10" >
+      <corrige>Selon Bassidiki Haidara c'est Bamako</corrige>
+      Quelle est la capitale du Mali ?
+    </question>
+    <question bareme="10">
+      <corrige>Dordogne</corrige>
+      A quel département correspond le nombre 24 ?
+    </question>
+  </question>
+</exercice>
+</examen>

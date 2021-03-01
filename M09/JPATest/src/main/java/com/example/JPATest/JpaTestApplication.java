@@ -1,4 +1,4 @@
-package com.example.JPATest;
+package com.example.jpaTest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

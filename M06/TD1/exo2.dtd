@@ -1,0 +1,11 @@
+<!ELEMENT examen    (date, exercice+)>
+<!ATTLIST examen titre  CDATA #REQUIRED>
+<!ATTLIST examen code NMTOKEN #REQUIRED>
+<!ELEMENT date EMPTY>
+<!ATTLIST date jour CDATA #REQUIRED mois (jan|fev|mar|avr|mai|jun|jui|aou|sep|oct|nov|dec) #REQUIRED annee NMTOKEN #REQUIRED>
+<!ELEMENT exercice (question+)>
+<!ATTLIST exercice titre CDATA #IMPLIED>
+<!ELEMENT question  (#PCDATA|question|corrige)*>
+<!ATTLIST question bareme CDATA #REQUIRED>
+<!ELEMENT corrige #PCDATA>
+<!ATTLIST corrige nomFichier CDATA #IMPLIED>
