@@ -1,0 +1,2 @@
+TOS_Jobs_Records={"LOCAL_PROJECT"\:{"projects"\:{"METADATA_FILE_DELIMITED"\:{"nb"\:1,"nb.used"\:1},"PROCESS"\:{"details"\:{"components"\:[{"component_name"\:"tMysqlInput","count"\:1},{"component_name"\:"tMysqlOutput","count"\:1},{"component_name"\:"tFileInputDelimited","count"\:1},{"component_name"\:"tMap","count"\:1},{"component_name"\:"tLogRow","count"\:1}],"nb.components"\:5,"nb.contextVars"\:0},"nb"\:2}},"type"\:"local"}}
+eclipse.preferences.version=1
